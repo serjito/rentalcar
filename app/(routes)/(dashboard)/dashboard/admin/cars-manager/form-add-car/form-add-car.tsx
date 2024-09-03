@@ -22,10 +22,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { UploadButton } from '@/utils/uploadthing';
+import { useState } from 'react';
 
 const onSubmit = async (values: z.infer<typeof formSchema>) => {};
 
 export function FormAddCar() {
+  const [photoUploaded, setPhotoUploaded] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -187,6 +190,34 @@ export function FormAddCar() {
                 <FormLabel>Price per Day</FormLabel>
                 <FormControl>
                   <Input placeholder="20€" type="number" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="photo"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Car Image</FormLabel>
+                <FormControl>
+                  {photoUploaded ? (
+                    <p className="text-sm">Image uploaded!</p>
+                  ) : (
+                    <UploadButton
+                      className="rounded-lg bg-slate-600/20 text-slate-800 outline-dotted outline-3"
+                      {...field}
+                      endpoint="photo"
+                      onClientUploadComplete={res => {
+                        form.setValue('photo', res?.[0].url);
+                        setPhotoUploaded(true);
+                      }}
+                      onUploadError={(error: Error) => {
+                        console.log(error);
+                      }}
+                    />
+                  )}
                 </FormControl>
                 <FormMessage />
               </FormItem>
