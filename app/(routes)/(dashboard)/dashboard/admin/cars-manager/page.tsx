@@ -1,10 +1,11 @@
-import { ButtonAddCar } from './components/button-add-car';
+import React from 'react';
+import { ButtonAddCar } from './button-add-car';
 
-export default async function CarsManagerPage() {
+export default function CarsManagerPage() {
   return (
     <div>
       <div className="flex justify-between">
-        <h2 className="text-2xl font-bold">organiza tus coches</h2>
+        <h2 className="text-2xl font-bold">Manage your cars</h2>
         <ButtonAddCar />
       </div>
     </div>
