@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/dialog';
 import { PlusCircle } from 'lucide-react';
 import { useState } from 'react';
+import FormAddCar from './form-add-car/form-add-car';
 
 export function ButtonAddCar() {
   const [openDialog, setOpenDialog] = useState(false);
@@ -24,7 +25,9 @@ export function ButtonAddCar() {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogDescription>Formulario</DialogDescription>
+          <DialogDescription>
+            <FormAddCar />
+          </DialogDescription>
         </DialogHeader>
       </DialogContent>
     </Dialog>
