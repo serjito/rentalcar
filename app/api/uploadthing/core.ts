@@ -15,5 +15,4 @@ export const ourFileRouter = {
     .middleware(() => handleAuth())
     .onUploadComplete(() => {}),
 } satisfies FileRouter;
-
 export type OurFileRouter = typeof ourFileRouter;
