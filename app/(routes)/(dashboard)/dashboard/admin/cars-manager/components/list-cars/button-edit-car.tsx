@@ -1,5 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
+
 import {
   Dialog,
   DialogContent,
@@ -7,26 +8,29 @@ import {
   DialogHeader,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { PlusCircle, X } from 'lucide-react';
+import { Car } from '@prisma/client';
+import { Pencil } from 'lucide-react';
 import { useState } from 'react';
-import { FormAddCar } from './components/form-add-car/form-add-car';
 
-export function ButtonAddCar() {
+export type ButtonEditCarProps = {
+  carData: Car;
+};
+
+export function ButtonEditCar(props: ButtonEditCarProps) {
+  const { carData } = props;
   const [openDialog, setOpenDialog] = useState(false);
 
   return (
-    <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+    <Dialog open={openDialog}>
       <DialogTrigger asChild>
         <Button variant="outline" onClick={() => setOpenDialog(true)}>
-          Añade un nuevo coche
-          <PlusCircle className="ml-2" />
+          Edit
+          <Pencil className="w-4 h-4 ml-2" />
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogDescription>
-            <FormAddCar setOpenDialog={setOpenDialog} />
-          </DialogDescription>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
       </DialogContent>
     </Dialog>

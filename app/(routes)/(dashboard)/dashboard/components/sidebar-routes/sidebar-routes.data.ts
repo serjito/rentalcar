@@ -2,17 +2,17 @@ import { Calendar, Car, Heart, SquareGanttChart } from 'lucide-react';
 export const dataGeneralSidebar = [
   {
     icon: Car,
-    label: 'Cars',
+    label: 'Coches',
     href: '/dashboard',
   },
   {
     icon: Calendar,
-    label: 'Cars Reserves',
+    label: 'Reserva de coches',
     href: '/reserves',
   },
   {
     icon: Heart,
-    label: 'Loved Cars',
+    label: 'Mis favoritos',
     href: '/loved-cars',
   },
 ];
@@ -20,12 +20,12 @@ export const dataGeneralSidebar = [
 export const dataAdminSidebar = [
   {
     icon: SquareGanttChart,
-    label: 'Manage your cars',
+    label: 'Administra tus coches',
     href: '/dashboard/admin/cars-manager',
   },
   {
     icon: Calendar,
-    label: 'All reserves',
+    label: 'Todas las reservas',
     href: '/dashboard/admin/reserves-admin',
   },
 ];

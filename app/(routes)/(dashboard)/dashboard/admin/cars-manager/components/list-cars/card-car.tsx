@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { Car } from '@prisma/client';
 import { toast } from '@/hooks/use-toast';
+import { ButtonEditCar } from './button-edit-car';
 
 type CardCarProps = {
   car: Car;
@@ -98,6 +99,7 @@ export function CardCar(props: CardCarProps) {
             Delete
             <Trash className="w-4 h-4 ml-2" />
           </Button>
+          <ButtonEditCar carData={car} />
         </div>
 
         {car.isPublish ? (

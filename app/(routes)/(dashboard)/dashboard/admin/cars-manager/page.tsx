@@ -3,7 +3,7 @@ import { auth } from '@clerk/nextjs/server';
 import { ListCars } from './components/list-cars/list-cars';
 import { redirect } from 'next/navigation';
 import { db } from '@/lib/db';
-import { ButtonAddCar } from './button-add-car';
+import { ButtonAddCar } from './components/button-add-car';
 
 export default async function CarsManagerPage() {
   const { userId } = auth();
