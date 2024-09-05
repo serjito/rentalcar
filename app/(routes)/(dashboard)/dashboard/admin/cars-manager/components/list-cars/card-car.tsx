@@ -29,11 +29,11 @@ export function CardCar(props: CardCarProps) {
   const deleteCar = async () => {
     try {
       await axios.delete(`/api/car/${car.id}`);
-      toast({ title: 'Car deleted ❌' });
+      toast({ title: 'Coche eliminado ❌' });
       router.refresh();
     } catch (error) {
       toast({
-        title: 'Something went wrong',
+        title: 'Algo ha salido mal',
         variant: 'destructive',
       });
     }
@@ -54,7 +54,7 @@ export function CardCar(props: CardCarProps) {
       router.refresh();
     } catch (error) {
       toast({
-        title: 'Something went wrong',
+        title: 'Algo ha salido mal',
         variant: 'destructive',
       });
     }
@@ -96,7 +96,7 @@ export function CardCar(props: CardCarProps) {
 
         <div className="flex justify-between mt-3 gap-x-4">
           <Button variant="outline" onClick={deleteCar}>
-            Delete
+            Eliminar
             <Trash className="w-4 h-4 ml-2" />
           </Button>
           <ButtonEditCar carData={car} />
@@ -108,7 +108,7 @@ export function CardCar(props: CardCarProps) {
             variant="outline"
             onClick={() => handlerPublishCar(false)}
           >
-            Unpublish
+            Despublicar
             <Upload className="w-4 h-4 ml-2" />
           </Button>
         ) : (
@@ -116,7 +116,7 @@ export function CardCar(props: CardCarProps) {
             className="w-full mt-3"
             onClick={() => handlerPublishCar(true)}
           >
-            Publish
+            Publicar
             <Upload className="w-4 h-4 ml-2" />
           </Button>
         )}

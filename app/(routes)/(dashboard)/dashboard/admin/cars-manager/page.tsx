@@ -1,9 +1,9 @@
 import { auth } from '@clerk/nextjs/server';
 
-import { ListCars } from './components/list-cars/list-cars';
 import { redirect } from 'next/navigation';
 import { db } from '@/lib/db';
 import { ButtonAddCar } from './components/button-add-car';
+import { ListCars } from './components/list-cars/list-cars';
 
 export default async function CarsManagerPage() {
   const { userId } = auth();
@@ -24,7 +24,7 @@ export default async function CarsManagerPage() {
   return (
     <div>
       <div className="flex justify-between">
-        <h2 className="text-2xl font-bold">Gestión de coches</h2>
+        <h2 className="text-2xl font-bold">Manage your cars</h2>
         <ButtonAddCar />
       </div>
       <ListCars cars={car} />
